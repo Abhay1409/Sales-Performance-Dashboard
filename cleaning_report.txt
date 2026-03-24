@@ -1,0 +1,43 @@
+
+╔══════════════════════════════════════════════════════════╗
+║          SALES DATA CLEANING REPORT                     ║
+╚══════════════════════════════════════════════════════════╝
+
+Generated on : 2026-03-23 11:58:02
+
+INPUT SUMMARY
+─────────────────────────────────────────────────────────
+  Original rows         : 52,200
+  Original null values  : ~2,550
+  Duplicate rows        : 200
+
+CLEANING STEPS
+─────────────────────────────────────────────────────────
+  Date standardisation  : fixed 50 mixed-format dates
+  Duplicates removed    : 200 rows dropped
+  Invalid quantities    : 5 rows removed (qty ≤ 0)
+  Discount_Pct nulls    : 700 filled with region median
+  Profit_Margin nulls   : 350 filled with category median
+  Salesperson nulls     : 600 filled with 'Unknown'
+  Channel nulls         : 400 filled with mode (Online)
+  Customer_ID nulls     : 500 filled with 'CUST0000'
+  Financial columns     : Sale_Amount, Profit_Amount, Cost_Amount re-derived
+  Date parts            : Year, Month, Quarter, Month_Name, Week rebuilt
+
+OUTPUT SUMMARY
+─────────────────────────────────────────────────────────
+  Final rows            : 51,995
+  Remaining null values : 0
+  Total nulls resolved  : 2,550
+  Total rows removed    : 205
+  Date range            : 2022-01-01 → 2024-12-31
+  Categories            : 5 — Clothing, Electronics, Sports, Furniture, Food & Beverage
+  Regions               : 4 — North, East, South, West
+  Unique products       : 25
+  Total Revenue (₹)     : ₹1,132,652,399
+  Total Profit (₹)      : ₹200,089,990
+  Avg Profit Margin     : 32.6%
+
+FILE SAVED
+─────────────────────────────────────────────────────────
+  ✅  cleaned_sales_data.csv
